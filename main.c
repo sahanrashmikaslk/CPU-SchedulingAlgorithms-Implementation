@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Function to find the waiting time for the FCFS algorithm
 void findWaitingTimeFCFS(int processes[], int n, int bt[], int wt[]) {
@@ -10,7 +11,7 @@ void findWaitingTimeFCFS(int processes[], int n, int bt[], int wt[]) {
 
 // Function to find the waiting time for the SJF algorithm
 void findWaitingTimeSJF(int processes[], int n, int bt[], int at[], int wt[]) {
-    int remainingTime[n], completed = 0, minIndex, minValue, time;
+    int remainingTime[4], completed = 0, minIndex, minValue, time;
     float totalWaitingTime = 0;
 
     for (int i = 0; i < n; i++) {
@@ -46,7 +47,7 @@ void findWaitingTimeSJF(int processes[], int n, int bt[], int at[], int wt[]) {
 
 // Function to find the waiting time for the RR algorithm
 void findWaitingTimeRR(int processes[], int n, int bt[], int at[], int wt[], int quantum) {
-    int remainingTime[n];
+    int remainingTime[4];
     for (int i = 0; i < n; i++) {
         remainingTime[i] = bt[i];
     }
@@ -82,7 +83,9 @@ int main() {
     int burstTime[] = {10, 8, 4, 5};
     int quantum = 2;
 
-    int waitingTimeFCFS[n], waitingTimeSJF[n], waitingTimeRR[n];
+    int *waitingTimeFCFS = malloc(n * sizeof(int));
+    int *waitingTimeSJF = malloc(n * sizeof(int));
+    int *waitingTimeRR = malloc(n * sizeof(int));
 
     // Calculate waiting times for FCFS
     findWaitingTimeFCFS(processes, n, burstTime, waitingTimeFCFS);
