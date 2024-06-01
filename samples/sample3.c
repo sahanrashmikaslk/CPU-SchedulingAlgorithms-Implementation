@@ -154,11 +154,13 @@ int main()
             {1, 0, 10, 0, 0},
             {2, 6, 8, 0, 0},
             {3, 7, 4, 0, 0},
-            {4, 9, 5, 0, 0}};
+            {4, 9, 5, 0, 0}
+            
+            };
 
     int num_processes = sizeof(processes) / sizeof(processes[0]);
 
-    int time_quantum = 4; // Adjust time quantum as needed
+    int time_quantum = 2; // Adjust time quantum as needed
 
     fcfs(processes, num_processes);
     sjf(processes, num_processes);
