@@ -141,6 +141,7 @@ int main()
     for (i = 0; i < n; i++)
     {
         printf("%5d\t%15d\t\t%9d\t\t%d\t\t\t%12d\t%12d\n", p[i].process, p[i].arrival, p[i].burst, p[i].complete, p[i].tat, p[i].wt);
+
     }
 
     // Calculating average wait time
