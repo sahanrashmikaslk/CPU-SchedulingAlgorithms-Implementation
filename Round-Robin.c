@@ -5,14 +5,13 @@
 // Structure to store process details
 typedef struct RR
 {
-    int process;
-    int arrival;
-    int burst;
-    int start[20];
-    int wt;
-    int complete;
-    int tat;
-
+    int process;   // Process ID
+    int arrival;   // Arrival time
+    int burst;     // Burst time
+    int start[20]; // Array to store the start times
+    int wt;        // Waiting time
+    int complete;  // Completion time
+    int tat;       // Turnaround time
 } RR;
 
 int quantum; // Quantum for Round Robin scheduling
@@ -22,7 +21,6 @@ int main()
     int n, i, j;
 
     // Taking Input
-
     n = 4; // No. of Processes
     RR p[n];
     quantum = 2; // Time Quantum
@@ -41,8 +39,7 @@ int main()
         p[i].process = process_data[i][0];
         p[i].arrival = process_data[i][1];
         p[i].burst = process_data[i][2];
-        // p[i].remaining = p[i].burst; // Initially the remaining time is the burst time
-        p[i].complete = 0; // Completion time is 0
+        p[i].complete = 0; // Completion time is initially set to 0
     }
 
     // Declaring variables
@@ -135,12 +132,12 @@ int main()
     } // end of while loop
 
     // Printing output
-    printf("Process\t\tArrival Time\tBurst Time\tCompletion time\tTurn Around Time\tWaiting Time\n");
+    printf("Process\t\tArrival Time\tBurst Time\tCompletion time\t\tTurn Around Time\tWaiting Time\n");
 
     // Print process details
     for (i = 0; i < n; i++)
     {
-        printf("%5d\t%15d\t\t%9d\t\t%d\t\t\t%12d\t%12d\n", p[i].process, p[i].arrival, p[i].burst, p[i].complete, p[i].tat, p[i].wt);
+        printf("%5d\t%12d\t\t%8d\t\t%d\t\t\t%12d\t%12d\n", p[i].process, p[i].arrival, p[i].burst, p[i].complete, p[i].tat, p[i].wt);
     }
 
     // Calculating average wait time
